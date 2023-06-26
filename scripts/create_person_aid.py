@@ -14,12 +14,11 @@ from signify.app.clienting import SignifyClient
 
 
 def create_aid():
-    url = "http://localhost:3901"
+    url = "http://172.20.0.30:3901"
     bran = b'0123456789abcdefghijk'
     tier = Tiers.low
 
     client = SignifyClient(passcode=bran, tier=tier, url=url)
-
     identifiers = client.identifiers()
     operations = client.operations()
     oobis = client.oobis()
@@ -37,6 +36,7 @@ def create_aid():
 
     while not op["done"]:
         op = operations.get(op["name"])
+        print("yup", op)
         sleep(1)
 
     icp = coring.Serder(ked=op["response"])
@@ -44,10 +44,9 @@ def create_aid():
     print(f"Person AID {icp.pre} created")
 
     identifiers.addEndRole("aid1", eid=client.agent.pre)
-
     print("person resolving external...")
     op = oobis.resolve(
-        oobi="http://127.0.0.1:5642/oobi/EHOuGiHMxJShXHgSb6k_9pqxmRb8H-LT0R2hQouHp8pW/witness/BBilc4"
+        oobi="http://172.20.0.10:5642/oobi/EHOuGiHMxJShXHgSb6k_9pqxmRb8H-LT0R2hQouHp8pW/witness/BBilc4"
              "-L3tFUnfM_wJr4S4OJanAv_VmF_dJNN6vkf2Ha",
         alias="external")
     while not op["done"]:
@@ -57,7 +56,7 @@ def create_aid():
 
     print("person resolving qvi...")
     op = oobis.resolve(
-        oobi="http://127.0.0.1:5642/oobi/EHMnCf8_nIemuPx-cUHaDQq8zSnQIFAurdEpwHpNbnvX/witness/BBilc4"
+        oobi="http://172.20.0.10:5642/oobi/EHMnCf8_nIemuPx-cUHaDQq8zSnQIFAurdEpwHpNbnvX/witness/BBilc4"
              "-L3tFUnfM_wJr4S4OJanAv_VmF_dJNN6vkf2Ha",
         alias="qvi")
     while not op["done"]:
@@ -67,7 +66,7 @@ def create_aid():
 
     print("person resolving legal-entity...")
     op = oobis.resolve(
-        oobi="http://127.0.0.1:5642/oobi/EIitNxxiNFXC1HDcPygyfyv3KUlBfS_Zf-ZYOvwjpTuz/witness/BBilc4"
+        oobi="http://172.20.0.10:5642/oobi/EIitNxxiNFXC1HDcPygyfyv3KUlBfS_Zf-ZYOvwjpTuz/witness/BBilc4"
              "-L3tFUnfM_wJr4S4OJanAv_VmF_dJNN6vkf2Ha",
         alias="legal-entity")
     while not op["done"]:
@@ -77,7 +76,7 @@ def create_aid():
 
     print("resolving schema EBfdlu8R27Fbx-ehrqwImnK-8Cm79sqbAQ4MmvEAYqao")
     op = oobis.resolve(
-        oobi="http://127.0.0.1:7723/oobi/EBfdlu8R27Fbx-ehrqwImnK-8Cm79sqbAQ4MmvEAYqao")
+        oobi="http://172.20.0.10:7723/oobi/EBfdlu8R27Fbx-ehrqwImnK-8Cm79sqbAQ4MmvEAYqao")
     while not op["done"]:
         op = operations.get(op["name"])
         sleep(1)
@@ -85,7 +84,7 @@ def create_aid():
 
     print("resolving schema ENPXp1vQzRF6JwIuS-mp2U8Uf1MoADoP_GqQ62VsDZWY")
     op = oobis.resolve(
-        oobi="http://127.0.0.1:7723/oobi/ENPXp1vQzRF6JwIuS-mp2U8Uf1MoADoP_GqQ62VsDZWY")
+        oobi="http://172.20.0.10:7723/oobi/ENPXp1vQzRF6JwIuS-mp2U8Uf1MoADoP_GqQ62VsDZWY")
     while not op["done"]:
         op = operations.get(op["name"])
         sleep(1)
@@ -93,7 +92,7 @@ def create_aid():
 
     print("resolving schema EH6ekLjSr8V32WyFbGe1zXjTzFs9PkTYmupJ9H65O14g")
     op = oobis.resolve(
-        oobi="http://127.0.0.1:7723/oobi/EH6ekLjSr8V32WyFbGe1zXjTzFs9PkTYmupJ9H65O14g")
+        oobi="http://172.20.0.10:7723/oobi/EH6ekLjSr8V32WyFbGe1zXjTzFs9PkTYmupJ9H65O14g")
     while not op["done"]:
         op = operations.get(op["name"])
         sleep(1)
@@ -101,7 +100,7 @@ def create_aid():
 
     print("resolving schema EEy9PkikFcANV1l7EHukCeXqrzT1hNZjGlUk7wuMO5jw")
     op = oobis.resolve(
-        oobi="http://127.0.0.1:7723/oobi/EEy9PkikFcANV1l7EHukCeXqrzT1hNZjGlUk7wuMO5jw")
+        oobi="http://172.20.0.10:7723/oobi/EEy9PkikFcANV1l7EHukCeXqrzT1hNZjGlUk7wuMO5jw")
     while not op["done"]:
         op = operations.get(op["name"])
         sleep(1)

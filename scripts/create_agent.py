@@ -8,6 +8,7 @@ Testing clienting with integration tests that require a running KERIA Cloud Agen
 
 import pytest
 import requests
+import os
 from keri import kering
 from keri.core.coring import Tiers
 
@@ -15,7 +16,7 @@ from signify.app.clienting import SignifyClient
 
 
 def create_agent():
-    url = "http://localhost:3901"
+    url = "http://172.20.0.30:3901"
     bran = b'0123456789abcdefghijk'
     tier = Tiers.med
 
@@ -32,7 +33,7 @@ def create_agent():
 
     evt, siger = client.ctrl.event()
 
-    res = requests.post(url="http://localhost:3903/boot",
+    res = requests.post(url="http://172.20.0.30:3903/boot",
                         json=dict(
                             icp=evt.ked,
                             sig=siger.qb64,
