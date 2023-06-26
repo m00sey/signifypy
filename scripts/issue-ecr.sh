@@ -25,8 +25,8 @@ kli init --name legal-entity --salt 0ACDEyMzQ1Njc4OWxtbm9AbC --nopasscode --conf
 kli incept --name legal-entity --alias legal-entity --file "${KERI_DEMO_SCRIPT_DIR}"/data/gleif-sample.json
 
 # EBcIURLpxmVwahksgrsGW6_dUw0zBhyEHYFk17eWrZfk
-# python "${KERI_SCRIPT_DIR}"/create_agent.py
-# python "${KERI_SCRIPT_DIR}"/create_person_aid.py
+python "${KERI_SCRIPT_DIR}"/create_agent.py
+python "${KERI_SCRIPT_DIR}"/create_person_aid.py
 
 echo 'resolving external'
 kli oobi resolve --name qvi --oobi-alias external --oobi http://${KERI_WITNESSES}:5642/oobi/EHOuGiHMxJShXHgSb6k_9pqxmRb8H-LT0R2hQouHp8pW/witness/BBilc4-L3tFUnfM_wJr4S4OJanAv_VmF_dJNN6vkf2Ha
@@ -37,16 +37,16 @@ kli oobi resolve --name legal-entity --oobi-alias qvi --oobi http://${KERI_WITNE
 echo 'resolving legal-entity'
 kli oobi resolve --name external --oobi-alias legal-entity --oobi http://${KERI_WITNESSES}:5642/oobi/EIitNxxiNFXC1HDcPygyfyv3KUlBfS_Zf-ZYOvwjpTuz/witness/BBilc4-L3tFUnfM_wJr4S4OJanAv_VmF_dJNN6vkf2Ha
 kli oobi resolve --name qvi --oobi-alias legal-entity --oobi http://${KERI_WITNESSES}:5642/oobi/EIitNxxiNFXC1HDcPygyfyv3KUlBfS_Zf-ZYOvwjpTuz/witness/BBilc4-L3tFUnfM_wJr4S4OJanAv_VmF_dJNN6vkf2Ha
-# echo 'resolving person'
-# kli oobi resolve --name external --oobi-alias person --oobi http://${KERI_AGENT}:3902/oobi/EBcIURLpxmVwahksgrsGW6_dUw0zBhyEHYFk17eWrZfk/agent/EEXekkGu9IAzav6pZVJhkLnjtjM5v3AcyA-pdKUcaGei
-# kli oobi resolve --name qvi --oobi-alias person --oobi http://${KERI_AGENT}:3902/oobi/EBcIURLpxmVwahksgrsGW6_dUw0zBhyEHYFk17eWrZfk/agent/EEXekkGu9IAzav6pZVJhkLnjtjM5v3AcyA-pdKUcaGei
-# kli oobi resolve --name legal-entity --oobi-alias person --oobi http://${KERI_AGENT}:3902/oobi/EBcIURLpxmVwahksgrsGW6_dUw0zBhyEHYFk17eWrZfk/agent/EEXekkGu9IAzav6pZVJhkLnjtjM5v3AcyA-pdKUcaGei
+echo 'resolving person'
+kli oobi resolve --name external --oobi-alias person --oobi http://${KERI_AGENT}:3902/oobi/EBcIURLpxmVwahksgrsGW6_dUw0zBhyEHYFk17eWrZfk/agent/EEXekkGu9IAzav6pZVJhkLnjtjM5v3AcyA-pdKUcaGei
+kli oobi resolve --name qvi --oobi-alias person --oobi http://${KERI_AGENT}:3902/oobi/EBcIURLpxmVwahksgrsGW6_dUw0zBhyEHYFk17eWrZfk/agent/EEXekkGu9IAzav6pZVJhkLnjtjM5v3AcyA-pdKUcaGei
+kli oobi resolve --name legal-entity --oobi-alias person --oobi http://${KERI_AGENT}:3902/oobi/EBcIURLpxmVwahksgrsGW6_dUw0zBhyEHYFk17eWrZfk/agent/EEXekkGu9IAzav6pZVJhkLnjtjM5v3AcyA-pdKUcaGei
 
 kli vc registry incept --name external --alias external --registry-name vLEI-external
 kli vc registry incept --name qvi --alias qvi --registry-name vLEI-qvi
 kli vc registry incept --name legal-entity --alias legal-entity --registry-name vLEI-legal-entity
 
-Issue QVI credential vLEI from GLEIF External to QVI
+# Issue QVI credential vLEI from GLEIF External to QVI
 kli vc issue --name external --alias external --registry-name vLEI-external --schema EBfdlu8R27Fbx-ehrqwImnK-8Cm79sqbAQ4MmvEAYqao --recipient EHMnCf8_nIemuPx-cUHaDQq8zSnQIFAurdEpwHpNbnvX --data @"${KERI_DEMO_SCRIPT_DIR}"/data/qvi-data.json
 kli vc list --name qvi --alias qvi --poll
 

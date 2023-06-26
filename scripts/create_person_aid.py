@@ -36,7 +36,6 @@ def create_aid():
 
     while not op["done"]:
         op = operations.get(op["name"])
-        print("yup", op)
         sleep(1)
 
     icp = coring.Serder(ked=op["response"])
@@ -76,7 +75,7 @@ def create_aid():
 
     print("resolving schema EBfdlu8R27Fbx-ehrqwImnK-8Cm79sqbAQ4MmvEAYqao")
     op = oobis.resolve(
-        oobi="http://172.20.0.10:7723/oobi/EBfdlu8R27Fbx-ehrqwImnK-8Cm79sqbAQ4MmvEAYqao")
+        oobi="http://172.20.0.20:7723/oobi/EBfdlu8R27Fbx-ehrqwImnK-8Cm79sqbAQ4MmvEAYqao")
     while not op["done"]:
         op = operations.get(op["name"])
         sleep(1)
@@ -84,7 +83,7 @@ def create_aid():
 
     print("resolving schema ENPXp1vQzRF6JwIuS-mp2U8Uf1MoADoP_GqQ62VsDZWY")
     op = oobis.resolve(
-        oobi="http://172.20.0.10:7723/oobi/ENPXp1vQzRF6JwIuS-mp2U8Uf1MoADoP_GqQ62VsDZWY")
+        oobi="http://172.20.0.20:7723/oobi/ENPXp1vQzRF6JwIuS-mp2U8Uf1MoADoP_GqQ62VsDZWY")
     while not op["done"]:
         op = operations.get(op["name"])
         sleep(1)
@@ -92,7 +91,7 @@ def create_aid():
 
     print("resolving schema EH6ekLjSr8V32WyFbGe1zXjTzFs9PkTYmupJ9H65O14g")
     op = oobis.resolve(
-        oobi="http://172.20.0.10:7723/oobi/EH6ekLjSr8V32WyFbGe1zXjTzFs9PkTYmupJ9H65O14g")
+        oobi="http://172.20.0.20:7723/oobi/EH6ekLjSr8V32WyFbGe1zXjTzFs9PkTYmupJ9H65O14g")
     while not op["done"]:
         op = operations.get(op["name"])
         sleep(1)
@@ -100,7 +99,7 @@ def create_aid():
 
     print("resolving schema EEy9PkikFcANV1l7EHukCeXqrzT1hNZjGlUk7wuMO5jw")
     op = oobis.resolve(
-        oobi="http://172.20.0.10:7723/oobi/EEy9PkikFcANV1l7EHukCeXqrzT1hNZjGlUk7wuMO5jw")
+        oobi="http://172.20.0.20:7723/oobi/EEy9PkikFcANV1l7EHukCeXqrzT1hNZjGlUk7wuMO5jw")
     while not op["done"]:
         op = operations.get(op["name"])
         sleep(1)
