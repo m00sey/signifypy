@@ -44,7 +44,7 @@ class Credentials:
         self.aid = aid
         self.client = client
 
-    def list(self, typ=None, schema=None):
+    def list(self, name, typ=None, schema=None):
         """
 
         Parameters:
@@ -65,11 +65,11 @@ class Credentials:
         if schema is not None:
             params["schema"] = schema
 
-        res = self.client.get(f"/aids/{self.aid}/credentials", params=params)
+        res = self.client.get(f"/identifiers/{name}/credentials", params=params)
         return res.json()
 
-    def export(self, said):
+    def export(self, name, said):
         headers = dict(accept="application/json+cesr")
 
-        res = self.client.get(f"/aids/{self.aid}/credentials/{said}", headers=headers)
+        res = self.client.get(f"/identifiers/{name}/credentials/{said}", headers=headers)
         return res.content

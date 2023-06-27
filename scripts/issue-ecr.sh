@@ -64,9 +64,9 @@ kli saidify --file /tmp/ecr-auth-edges.json
 kli vc issue --name legal-entity --alias legal-entity --registry-name vLEI-legal-entity --schema EH6ekLjSr8V32WyFbGe1zXjTzFs9PkTYmupJ9H65O14g --recipient EHMnCf8_nIemuPx-cUHaDQq8zSnQIFAurdEpwHpNbnvX --data @"${KERI_DEMO_SCRIPT_DIR}"/data/ecr-auth-data.json --edges @/tmp/ecr-auth-edges.json --rules @"${KERI_DEMO_SCRIPT_DIR}"/data/ecr-auth-rules.json
 kli vc list --name qvi --alias qvi --poll
 
-# # Issue ECR credential from QVI to Person
-# AUTH_SAID=$(kli vc list --name qvi --alias qvi --said --schema EH6ekLjSr8V32WyFbGe1zXjTzFs9PkTYmupJ9H65O14g)
-# echo "[\"$QVI_SAID\", \"$AUTH_SAID\"]" | jq -f "${KERI_DEMO_SCRIPT_DIR}"/data/ecr-edges-filter.jq > /tmp/ecr-edges.json
-# kli saidify --file /tmp/ecr-edges.json
-# kli vc issue --name qvi --alias qvi --private --registry-name vLEI-qvi --schema EEy9PkikFcANV1l7EHukCeXqrzT1hNZjGlUk7wuMO5jw --recipient EBcIURLpxmVwahksgrsGW6_dUw0zBhyEHYFk17eWrZfk --data @"${KERI_DEMO_SCRIPT_DIR}"/data/ecr-data.json --edges @/tmp/ecr-edges.json --rules @"${KERI_DEMO_SCRIPT_DIR}"/data/ecr-rules.json
-# python "${KERI_SCRIPT_DIR}"/list_person_credentials.py
+# Issue ECR credential from QVI to Person
+AUTH_SAID=$(kli vc list --name qvi --alias qvi --said --schema EH6ekLjSr8V32WyFbGe1zXjTzFs9PkTYmupJ9H65O14g)
+echo "[\"$QVI_SAID\", \"$AUTH_SAID\"]" | jq -f "${KERI_DEMO_SCRIPT_DIR}"/data/ecr-edges-filter.jq > /tmp/ecr-edges.json
+kli saidify --file /tmp/ecr-edges.json
+kli vc issue --name qvi --alias qvi --private --registry-name vLEI-qvi --schema EEy9PkikFcANV1l7EHukCeXqrzT1hNZjGlUk7wuMO5jw --recipient EBcIURLpxmVwahksgrsGW6_dUw0zBhyEHYFk17eWrZfk --data @"${KERI_DEMO_SCRIPT_DIR}"/data/ecr-data.json --edges @/tmp/ecr-edges.json --rules @"${KERI_DEMO_SCRIPT_DIR}"/data/ecr-rules.json
+python "${KERI_SCRIPT_DIR}"/list_person_credentials.py

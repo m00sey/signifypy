@@ -14,7 +14,7 @@ from signify.app.credentialing import CredentialTypes
 
 
 def list_credentials():
-    url = "http://localhost:3901"
+    url = "http://172.20.0.30:3901"
     bran = b'0123456789abcdefghijk'
     tier = Tiers.low
 
@@ -22,7 +22,7 @@ def list_credentials():
 
     credentials = client.credentials(aid="EBcIURLpxmVwahksgrsGW6_dUw0zBhyEHYFk17eWrZfk")
 
-    creds = credentials.list(typ=CredentialTypes.received)
+    creds = credentials.list("aid1", typ=CredentialTypes.received)
     assert len(creds) == 1
 
     creder = Creder(ked=creds[0]['sad'])
@@ -30,7 +30,7 @@ def list_credentials():
 
     print(f"Exporting credential {said}")
 
-    export = credentials.export(said)
+    export = credentials.export("aid1", said)
     print(export)
 
 
