@@ -21,24 +21,23 @@ def test_keeping_manager():
     verifyNoUnwantedInteractions()
     unstub()
 
-def test_keeping_manager_extern():
-    mock_pkg = mock(strict=True)
-    expect(mock_pkg).module({}).thenReturn({'my': 'module'})
-    import importlib
-    patch(importlib, 'import_module', lambda _: mock_pkg)
-
+def test_keeping_manager_get():
     from keri.core.coring import Salter
     mock_salter = mock(spec=Salter, strict=True)
 
     from signify.core.keeping import Manager
     manager = Manager(salter=mock_salter)
 
-    assert manager.salter == mock_salter
-    assert manager.modules == {}
+    from keri.core import coring
+    expect(coring, times=1).Prefixer(qb64='a_prefix').thenReturn('my_prefix')
+
+    out = manager.get({'prefix': 'a_prefix', 'salty': {}}, pidx=0)
+
+    from keri.app.keeping import SaltyCreator
+    assert type(out) is SaltyCreator
 
     verifyNoUnwantedInteractions()
     unstub()
-
 
 def test_keeping_manager_new_salty():
     from keri.core.coring import Salter

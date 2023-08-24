@@ -50,7 +50,7 @@ class Manager:
                 eargs = kwargs["extern"]
                 return mod.shim(pidx=pidx, **eargs)
 
-    def get(self, aid):
+    def get(self, aid, **kwargs):
         pre = coring.Prefixer(qb64=aid["prefix"])
         if keeping.Algos.salty in aid:
             kwargs = aid[keeping.Algos.salty]
